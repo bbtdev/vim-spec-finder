@@ -74,6 +74,7 @@ endfunction
 
 command! RelatedSpecVOpen call s:RelatedSpecVOpen()
 command! RelatedSpecOpen call s:RelatedSpecOpen()
+command! RelatedSpec call s:RelatedSpec()
 
 nnoremap <silent> <C-s> :RelatedSpecVOpen<CR>
 nnoremap <silent> ,<C-s> :RelatedSpecOpen<CR>
