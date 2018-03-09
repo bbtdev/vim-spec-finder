@@ -7,7 +7,7 @@ function! s:RelatedSpec()
   let l:filepath_without_app = substitute(l:filepath_without_app, "assets/", "", "")
 
   " Possible names for the spec/test for the file we're looking at
-  let l:test_names = [substitute(l:fname, ".rb$", "_spec.rb", ""), substitute(l:fname, ".rb$", "_test.rb", ""), substitute(l:fname, ".js$", "_spec.js", ""), substitute(l:fname, ".jsx$", "_spec.js", ""), substitute(l:fname, ".jsx$", "_spec.jsx", "")]
+  let l:test_names = [substitute(l:fname, ".rb$", "_spec.rb", ""), substitute(l:fname, ".rb$", "_test.rb", ""), substitute(l:fname, ".js$", "_spec.js", ""), substitute(l:fname, ".jsx$", "_spec.js", ""), substitute(l:fname, ".jsx$", "_spec.jsx", ""), substitute(l:fname, ".rabl$", ".rabl_spec.rb", "")]
 
   " Possible paths
   let l:test_paths = ["spec", "fast_spec", "test"]
