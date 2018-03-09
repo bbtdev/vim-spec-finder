@@ -41,7 +41,7 @@ function! s:FileRelatedToSpec()
     " return l:full_file_path
   end
 
-  echoerr l:related_file_name
+  let testingx = system('echo l:full_file_path') 
 
   for related_file_name in l:related_file_names
     let l:full_file_path = substitute(l:fullpath, l:filepath . "/" . l:fname, "app/" . l:related_file . "/" . related_file_name, "")
