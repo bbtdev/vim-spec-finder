@@ -32,7 +32,14 @@ function! s:FileRelatedToSpec()
   let l:related_file = substitute(l:filepath, "fast_spec/", "", "")
   let l:related_file = substitute(l:related_file, "spec/", "", "")
 
-  let l:related_file_names = [substitute(l:fname, ".rabl_spec.rb$", ".rabl", ""), substitute(l:fname, "_spec.rb$", ".rb", ""), substitute(l:fname, "_spec.js$", ".js", ""), substitute(l:fname, "_spec.js$", ".jsx", ""), substitute(l:fname, "_spec.jsx$", ".jsx", "")]
+  let l:related_file_names = [substitute(l:fname, "_spec.rb$", ".rb", ""), substitute(l:fname, "_spec.js$", ".js", ""), substitute(l:fname, "_spec.js$", ".jsx", ""), substitute(l:fname, "_spec.jsx$", ".jsx", "")]
+
+  " rabl
+  l:related_file_name = substitute(l:fname, ".rabl_spec.rb$", ".rabl", "")
+  let l:full_file_path = substitute(l:fullpath, l:filepath . "/" . l:fname, "app/" . l:related_file . "/" . l:related_file_name, "")
+  if filereadable(l:full_file_path)
+    return l:full_file_path
+  end
 
   for related_file_name in l:related_file_names
     let l:full_file_path = substitute(l:fullpath, l:filepath . "/" . l:fname, "app/" . l:related_file . "/" . related_file_name, "")
