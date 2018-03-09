@@ -38,7 +38,7 @@ function! s:FileRelatedToSpec()
   let l:related_file_name = substitute(l:fname, ".rabl_spec.rb$", ".rabl", "")
   let l:full_file_path = substitute(l:fullpath, l:filepath . "/" . l:fname, "app/" . l:related_file . "/" . l:related_file_name, "")
   if filereadable(l:full_file_path)
-    return l:full_file_path
+    " return l:full_file_path
   end
 
   for related_file_name in l:related_file_names
