@@ -47,6 +47,7 @@ function! s:FileRelatedToSpec()
       let l:full_file_path = substitute(l:full_file_path, "app/", "app/assets/", "")
     end
     if filereadable(l:full_file_path)
+      echoerr l:full_file_path
       return l:full_file_path
     end
   endfor
