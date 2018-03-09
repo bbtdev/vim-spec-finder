@@ -41,13 +41,14 @@ function! s:FileRelatedToSpec()
     " return l:full_file_path
   end
 
+  echoerr l:related_file_name
+
   for related_file_name in l:related_file_names
     let l:full_file_path = substitute(l:fullpath, l:filepath . "/" . l:fname, "app/" . l:related_file . "/" . related_file_name, "")
     if match(l:full_file_path, "javascripts") != -1
       let l:full_file_path = substitute(l:full_file_path, "app/", "app/assets/", "")
     end
     if filereadable(l:full_file_path)
-      echoerr l:full_file_path
       return l:full_file_path
     end
   endfor
